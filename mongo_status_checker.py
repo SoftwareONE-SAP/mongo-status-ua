@@ -7,6 +7,7 @@ Note:   Check local instance of MongoDB. Config file takes 2 parameters, host an
 '''
 
 import ConfigParser
+import os
 from datetime import datetime
 from mongo_function_class import *
 
@@ -14,7 +15,7 @@ class main:
 	def __init__(self):
 		self.outputHeader()
 		self.config = ConfigParser.RawConfigParser()
-		self.config.read("config.conf")
+		self.config.read(os.path.dirname(os.path.abspath(__file__))+"/config.conf")
 		self.outputRowData()
 	
 	def outputRowData(self):
