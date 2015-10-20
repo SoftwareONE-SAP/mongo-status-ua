@@ -10,7 +10,7 @@ from datetime import datetime
 class mongoConnectionEngine:
 
 	def getCurrentTime(self):
-		return int(datetime.now().microsecond)
+		return float(datetime.now().microsecond)
 
 	def connect(self, address, port):
 		startTime = self.getCurrentTime()
@@ -20,5 +20,4 @@ class mongoConnectionEngine:
 			return (str(0), "OK", str(float(self.getCurrentTime() - startTime)/1000))
 		except Exception as e:
 			#connection unsuccesful
-			#return("Could not connect to server.")
 			return (str(1), str(e), str(float(self.getCurrentTime() - startTime)/1000))
