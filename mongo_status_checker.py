@@ -15,12 +15,12 @@ class main:
 		self.outputHeader()
 		self.config = ConfigParser.RawConfigParser()
 		self.config.read("config.conf")
-		self.getMongoConnectionDetals()
 		self.outputRowData()
 	
 	def outputRowData(self):
 		mongo_Host = self.config.get("Mongo_Server","Hostname")
 		mongo_Port = self.config.get("Mongo_Server","Port")
+		self.mongoConnectionEngine = mongoConnectionEngine()
 		serverInfo = self.mongoConnectionEngine.connect(mongo_Host,mongo_Port)
 		print(self.config.get("Mongo_Server", "Hostname") + "@@@" + self.config.get("Mongo_Server", "Port") + "@@@" + serverInfo[0] + "@@@" + serverInfo[1] + "@@@" + serverInfo[2])
 
@@ -29,17 +29,10 @@ class main:
 		print("ma_group_name: Information")
 		print("ma_short_name: mgst")
 		print("ma_mon_order: 30")
-		print("ma_group_column: RemoteAddress")
-		print("ma_keys: RemoteAddress @@@ Port")
+		print("ma_keys: Remote Address @@@ Port")
 		print("ma_data:")
 		print("Remote Address @@@ Port @@@ Status @@@ Info @@@ Connection Time")
 
-	#get mongo config data  from config and send it to the connection class
-	def getMongoConnectionDetals(self):
-		mongo_Host = self.config.get("Mongo_Server","Hostname")
-		mongo_Port = self.config.get("Mongo_Server","Port")
-		self.mongoConnectionEngine = mongoConnectionEngine()
-		self.mongoConnectionEngine.connect(mongo_Host, mongo_Port)
 main()
 
 
