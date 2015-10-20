@@ -29,8 +29,7 @@ class main:
 		print("ma_group_name: Information")
 		print("ma_short_name: mgst")
 		print("ma_mon_order: 30")
-		print("ma_group_column: RemoteAddress")
-		print("ma_keys: RemoteAddress @@@ Port")
+		print("ma_keys: Remote Address @@@ Port")
 		print("ma_data:")
 		print("Remote Address @@@ Port @@@ Status @@@ Info @@@ Connection Time")
 
