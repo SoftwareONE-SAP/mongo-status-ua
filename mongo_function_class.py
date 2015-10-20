@@ -10,7 +10,7 @@ Note:  Connect to the MongoDB server using the config file parameters.
 class mongoConnectionEngine:
 
 	def getCurrentTime(self):
-		return int(datetime.now().microsecond)
+		return float(datetime.now().microsecond)
 
 	def connect(self, address, port):
 		startTime = self.getCurrentTime()
